@@ -44,6 +44,8 @@ public class PhoneBook {
     }
 
     public void remove(String name) {
+
+        phonebook.remove(name);
     }
 
     public Boolean hasEntry(String name) {
@@ -60,7 +62,16 @@ public class PhoneBook {
     }
 
     public String reverseLookup(String phoneNumber)  {
-        return null;
+//For each entry of String and List of Strings called entry in the phonebook entry set, get the key.
+
+            for(Map.Entry<String,List<String>> entry: phonebook.entrySet()) {
+                if (entry.getValue().contains(phoneNumber)) {
+
+
+                    return entry.getKey();
+                }
+            }
+    return null;
     }
 
     public List<String> getAllContactNames() {
